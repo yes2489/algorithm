@@ -1,8 +1,6 @@
-import math
 def solution(n):
-    x = int(math.sqrt(n))
-    if n == math.pow(x,2):
-        return int(math.pow(x+1,2))
-    else:
-        return -1
+    sqrt = n ** (1/2) # `**(1/2)`: 제곱근
     
+    if sqrt % 1 == 0:
+        return(sqrt+1)**2
+    return -1
