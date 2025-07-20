@@ -7,14 +7,14 @@
 #         cnt += 1
 # print(cnt)
 
-fruits = ['apple', 'banana', 'grape', 'bluberry', 'orange']
+string = ["apple", "banana", "grape", "blueberry", "orange"]
 
-char = input()
+a = input()
 cnt = 0
 
 for i in range(5):
-	if fruits[i][2] == char or fruits[i][3] == char:
-		print(fruits[i])
+	if string[i][2] == a or string[i][3] == a:
+		print(string[i])
 		cnt += 1
 
 print(cnt)
