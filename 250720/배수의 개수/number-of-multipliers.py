@@ -1,7 +1,7 @@
-nums = [int(input()) for _ in range(10)]
 cnt3 = 0
 cnt5 = 0
-for num in nums:
+for _ in range(10):
+    num = int(input())
     if num % 3 == 0 and num % 5 == 0:
         cnt3 += 1
         cnt5 += 1
