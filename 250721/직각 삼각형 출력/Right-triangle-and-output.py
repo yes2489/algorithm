@@ -1,10 +1,5 @@
 n = int(input())
 cnt = 0
-i = 1
-while True:
-    if i % 2 != 0:
-        cnt += 1
-        print('*' * i)
-    i += 1
-    if (cnt == n):
-        break
+while cnt < n:
+    print('*' * (2 * cnt + 1)) 
+    cnt += 1
