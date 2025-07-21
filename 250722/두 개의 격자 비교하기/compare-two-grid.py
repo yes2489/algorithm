@@ -1,7 +1,7 @@
 n, m = map(int, input().split())
 
-board1 = [list(map(int, input().split())) for row in range(m)]
-board2 = [list(map(int, input().split())) for row in range(m)]
+board1 = [list(map(int, input().split())) for row in range(n)]
+board2 = [list(map(int, input().split())) for row in range(n)]
 
 result = []
 for i in range(n):
