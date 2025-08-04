@@ -43,13 +43,14 @@ for _ in range(t):
             nc = c + DC[i]
             
             # 체스판 범위 내이고 아직 방문하지 않은 경우
-            if 0 <= nr < size and 0 <= nc < size and not visited[nr][nc] == True:
+            if 0 <= nr < size and 0 <= nc < size and not visited[nr][nc]:
                 # 방문 표시
                 visited[nr][nc] = True
                 # 거리 갱신 (이전 칸 + 1) -> board는 지금 칸까지 오는데 걸린 이동 횟수
                 board[nr][nc] = board[r][c] + 1
                 # 큐에 추가
                 q.append((nr, nc))
+
     # 도착 위치의 거리 출력
     print(board[end_r][end_c])
     
