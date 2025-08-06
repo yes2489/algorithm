@@ -8,8 +8,10 @@ for tc in range(10):
     
     res = 0
     # 순회 하면서 내 양 옆이 비었는지 확인
-    for i in range(2, len(buildings)-1):
-        if buildings[i-2] < buildings[i] and buildings[i-1] < buildings[i] and buildings[i+1] < buildings[i] and buildings[i+2] < buildings[i]:
-            res += buildings[i] - max(buildings[i-1], buildings[i-2], buildings[i+1], buildings[i+2])
+    for i in range(2, n-2):
+        neighbors = [buildings[i-2], buildings[i-1], buildings[i+1], buildings[i+2]]
+        max_neighbor = max(neighbors)
+        if buildings[i] > max_neighbor:
+            res += buildings[i] - max_neighbor
             
     print(f'#{tc+1} {res}')
