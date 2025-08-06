@@ -1,5 +1,5 @@
 # 10개의 테스트케이스
-for tc in range(10):
+for tc in range(1, 11):
     # 건물 수
     n = int(input())
     
@@ -14,4 +14,4 @@ for tc in range(10):
         if buildings[i] > max_neighbor:
             res += buildings[i] - max_neighbor
             
-    print(f'#{tc+1} {res}')
+    print(f'#{tc} {res}')
