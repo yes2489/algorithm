@@ -1,3 +1,4 @@
+from collections import Counter
 import sys
 input = sys.stdin.readline
 
@@ -6,20 +7,9 @@ cards = list(map(int, input().split()))
 m = int(input())
 candidate = list(map(int, input().split()))
 
-# 각 카드의 숫자 개수를 저장할 해시맵
-cnt = {}
-for card in cards:
-    # 이미 본 숫자면 +=1, 처음 보는 숫자면 1로 초기화
-    if card in cnt:
-        cnt[card] += 1
-    else:
-        cnt[card] = 1
+# Counter: 리스트 원소 개수를 세는 데 특화된 딕셔너리
+cnt = Counter(cards)
 
-# 확인 할 숫자마다 보유 개수를 출력
-for check in candidate:
-    # cnt.get(key) -> key가 없으면 기본값 None을 반환
-    res = cnt.get(check)
-    if res == None:
-        print(0, end=" ")
-    else:
-        print(res, end=" ")
+# 구분자.join(리스트, 튜플 등의 문자열 시퀀스)
+# : 문자열들을 이어 붙일 때 구분자를 끼워 넣어 하나의 문자열로 만듦
+print(' '.join(str(cnt[i]) for i in candidate))
