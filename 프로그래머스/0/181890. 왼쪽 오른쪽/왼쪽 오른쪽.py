@@ -1,11 +1,7 @@
 def solution(str_list):
-    length = len(str_list)
-    answer = []
-    for i in range(length):
+    for i in range(len(str_list)):
         if str_list[i] == 'l':
-            answer = str_list[0:i]
-            break
+            return str_list[:i]
         elif str_list[i] == 'r':
-            answer = str_list[i+1:length+1]
-            break
-    return answer
+            return str_list[i+1:len(str_list)+1]
+    return []
