@@ -1,20 +1,27 @@
 def solution(answers):
-    scores = [0, 0, 0, 0]
-    student1=[1, 2, 3, 4, 5]
-    student2=[2, 1, 2, 3, 2, 4, 2, 5]
-    student3=[3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
-    for i in range(len(answers)):
-        if(answers[i] == student1[i % len(student1)]):
-            scores[1] += 1
-        if(answers[i] == student2[i % len(student2)]):
-            scores[2] += 1
-        if(answers[i] == student3[i % len(student3)]):
-            scores[3] += 1
+    # 1. 수포자들의 패턴
+    patterns = [
+        [1, 2, 3, 4, 5],
+        [2, 1, 2, 3, 2, 4, 2, 5],
+        [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    ]
     
-    maxScore = max(scores)
-    result = []
-    for i in range(len(scores)):
-        if scores[i] == maxScore:
-            result.append(i)
+    # 2. 수포자 점수 저장 리스트
+    scores = [0] * 3
     
-    return result
+    # 3. 각 수포자의 패턴과 정답이 얼마나 일치하는지 확인
+    for i, answer in enumerate(answers):
+        for j, pattern in enumerate(patterns):
+            if answer == pattern[i % len(pattern)]:
+                scores[j] += 1
+    
+    # 4. 가장 높은 점수 저장
+    max_score = max(scores)
+    
+    # 5. 가장 높은 점수를 가진 수포자들의 번호를 찾아서 리스트에 담기
+    answer = []
+    for i, score in enumerate(scores):
+        if score == max_score:
+            answer.append(i+1)
+    
+    return answer
