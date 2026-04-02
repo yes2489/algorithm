@@ -15,13 +15,11 @@ public class Main {
                 char first = sb.charAt(0); // 맨 앞 문자 저장
                 sb.deleteCharAt(0); // 맨 앞 문자 삭제
                 sb.append(first); // 맨 앞 문자를 맨 뒤에 붙이기
-            }
-            if (question == 2) {
+            }else if (question == 2) {
                 char last = sb.charAt(sb.length() - 1); // 맨 뒤 문자 저장
                 sb.deleteCharAt(sb.length() - 1); // 맨 뒤 문자 삭제
                 sb.insert(0, last); // 맨 뒤 문자를 맨 앞에 삽입
-            }
-            if (question == 3) {
+            } else if (question == 3) {
                 sb.reverse();
             }
             System.out.println(sb);
