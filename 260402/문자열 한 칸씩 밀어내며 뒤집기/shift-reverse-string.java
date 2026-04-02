@@ -4,26 +4,27 @@ public class Main {
     public static void main(String[] args) {
         // Please write your code here.
         Scanner sc = new Scanner(System.in);
-        StringBuilder sb = new StringBuilder();
 
-        String str = sc.next();
-        int len = str.length();
+        StringBuilder sb = new StringBuilder(sc.next());
         int q = sc.nextInt();
 
         for (int i = 0; i < q; i++) {
             int question = sc.nextInt();
+
             if (question == 1) {
-                str = str.substring(1) + str.charAt(0);
+                char first = sb.charAt(0); // 맨 앞 문자 저장
+                sb.deleteCharAt(0); // 맨 앞 문자 삭제
+                sb.append(first); // 맨 앞 문자를 맨 뒤에 붙이기
             }
             if (question == 2) {
-                str = str.substring(len - 1) + str.substring(0, len - 1);
+                char last = sb.charAt(sb.length() - 1); // 맨 뒤 문자 저장
+                sb.deleteCharAt(sb.length() - 1); // 맨 뒤 문자 삭제
+                sb.insert(0, last); // 맨 뒤 문자를 맨 앞에 삽입
             }
             if (question == 3) {
-                sb.append(str);
-                str = sb.reverse().toString();
+                sb.reverse();
             }
-            System.out.println(str);
-            sb.setLength(0);
+            System.out.println(sb);
         }
     }
 }
