@@ -10,5 +10,7 @@ public class Main {
             String str = sc.next();
             len += str.length();
         }
+
+        System.out.println(len);
     }
 }
