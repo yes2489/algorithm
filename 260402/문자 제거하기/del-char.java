@@ -7,7 +7,7 @@ public class Main {
 
         String str = sc.next();
 
-        while(str.length() > 1) {
+        while(str.length() >= 1) {
             int idx = sc.nextInt();
 
             if (idx > str.length()) {
