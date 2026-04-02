@@ -7,10 +7,10 @@ public class Main {
 
         String str = sc.next();
 
-        while(str.length() >= 1) {
+        while(str.length() > 1) {
             int idx = sc.nextInt();
 
-            if (idx > str.length()) {
+            if (idx >= str.length()) {
                 str = str.substring(0, str.length() - 1);
             } else {
                 str = str.substring(0, idx) + str.substring(idx + 1);
