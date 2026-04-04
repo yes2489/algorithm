@@ -9,10 +9,10 @@ public class Main {
 
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if ('A' <= c && c <= 'Z') {
+            if (Character.isUpperCase(c)) {
                 System.out.print(c);
-            } else if ( 'a' <= c && c <= 'z') {
-                System.out.print(String.valueOf(c).toUpperCase());
+            } else if (Character.isLowerCase(c)) {
+                System.out.print(Character.toUpperCase(c));
             }
         }
     }
