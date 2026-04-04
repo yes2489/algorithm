@@ -7,21 +7,21 @@ public class Main {
         String a = sc.next();
         String b = sc.next();
 
-        StringBuilder aDigits = new StringBuilder();
-        StringBuilder bDigits = new StringBuilder();
+        int aDigits = extractDigits(a);
+        int bDigits = extractDigits(b);
 
-        for (char c : a.toCharArray()) {
+        System.out.println(aDigits + bDigits);
+    }
+    
+    static int extractDigits(String s) {
+        StringBuilder digits = new StringBuilder();
+        
+        for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {
-                aDigits.append(c);
+                digits.append(c);
             }
         }
-
-        for (char c : b.toCharArray()) {
-            if (Character.isDigit(c)) {
-                bDigits.append(c);
-            }
-        }
-
-        System.out.println(Integer.parseInt(aDigits.toString()) + Integer.parseInt(bDigits.toString()));
+        
+        return Integer.parseInt(digits.toString());
     }
 }
