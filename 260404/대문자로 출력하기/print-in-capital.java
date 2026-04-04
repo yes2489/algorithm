@@ -8,9 +8,11 @@ public class Main {
         String str = sc.next();
 
         for (int i = 0; i < str.length(); i++) {
-            if ('A' <= str.charAt(i) && str.charAt(i) <= 'z') {
-                String c = String.valueOf(str.charAt(i));
-                System.out.print(c.toUpperCase());
+            char c = str.charAt(i);
+            if ('A' <= c && c <= 'Z') {
+                System.out.print(c);
+            } else if ( 'a' <= c && c <= 'z') {
+                System.out.print(String.valueOf(c).toUpperCase());
             }
         }
     }
