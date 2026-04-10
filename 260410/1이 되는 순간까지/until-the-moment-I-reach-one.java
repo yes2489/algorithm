@@ -1,7 +1,5 @@
 import java.util.Scanner;
 public class Main {
-    static int cnt;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -12,13 +10,12 @@ public class Main {
 
     static int f(int n) {
         if (n == 1) 
-            return cnt;
+            return 0;
 
-        cnt++;
         if (n % 2 == 0) {
-            return f(n / 2);
+            return f(n / 2) + 1;
         } else {
-            return f(n / 3);
+            return f(n / 3) + 1;
         }
     }
 }
