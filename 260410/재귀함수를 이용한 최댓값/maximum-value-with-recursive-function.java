@@ -19,4 +19,4 @@ public class Main {
         
         return Math.max(maxNum(n - 1), arr[n - 1]);
     }
-}a
+}
