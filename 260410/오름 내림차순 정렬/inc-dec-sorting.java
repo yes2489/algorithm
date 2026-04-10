@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        Integer[] arr = new Integer[n];
+        int[] arr = new int[n];
 
         // 입력
         for (int i = 0; i < n; i++) {
@@ -13,6 +13,7 @@ public class Main {
 
         // 오름차순 정렬
         Arrays.sort(arr);
+        
         for (int v : arr) {
             System.out.print(v + " ");
         }
@@ -20,7 +21,9 @@ public class Main {
         System.out.println();
 
         // 내림차순 정렬
-        Arrays.sort(arr, Collections.reverseOrder());
+        Integer[] nums = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+        Arrays.sort(nums, Collections.reverseOrder());
+        
         for (int v : arr) {
             System.out.print(v + " ");
         }
