@@ -24,7 +24,7 @@ public class Main {
         Integer[] nums = Arrays.stream(arr).boxed().toArray(Integer[]::new);
         Arrays.sort(nums, Collections.reverseOrder());
         
-        for (int v : arr) {
+        for (int v : nums) {
             System.out.print(v + " ");
         }
     }
