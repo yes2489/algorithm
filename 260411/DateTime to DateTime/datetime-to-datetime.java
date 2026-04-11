@@ -6,14 +6,14 @@ public class Main {
         int B = sc.nextInt();
         int C = sc.nextInt();
         // Please write your code here.
+        if (A <= 11 && B <= 11 && C < 11) {
+            System.out.println(-1);
+            return;
+        }
 
         int ans = 0, date = 11, hour = 11, min = 11;
-        
+
         while(true) {
-            if (A <= 11 && B <= 11 && C < 11) {
-                ans = -1;
-                break;
-            }
             if (date == A && hour == B && min == C) {
                 break;
             }
