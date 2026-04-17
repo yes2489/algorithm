@@ -20,7 +20,8 @@ public class Main {
                 cnt++;
             }
         }
-
+        max = Math.max(max, cnt);
+        
         System.out.println(max);
     }
 }
