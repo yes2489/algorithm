@@ -58,7 +58,7 @@ public class Main {
             b[idx++] = cur;
         }
 
-        boolean samePos = false;
+        boolean samePos = true;
         int ans = 0;
 
         for (int i = 1; i <= maxTime; i++) {
