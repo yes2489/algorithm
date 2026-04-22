@@ -20,7 +20,8 @@ public class Main {
             y[i] = sc.nextInt();
         }
 
-        // t 기준으로 시간순 정렬
+        // 시간순 정렬
+        // t 기준으로 정렬
         for (int i = 0; i < T - 1; i++) {
             for (int j = i + 1; j < T; j++) {
                 if (t[i] > t[j]) {
@@ -58,12 +59,12 @@ public class Main {
             boolean infectB = false;
 
             // a가 전염시키는 경우
-            if (isACanInfect && !isBCanInfect) {
+            if (isACanInfect && !infected[b]) {
                 infectB = true;
             }
 
             // b가 전염시키는 경우
-            if (isBCanInfect && !isACanInfect) {
+            if (isBCanInfect && !infected[a]) {
                 infectA = true;
             }
 
