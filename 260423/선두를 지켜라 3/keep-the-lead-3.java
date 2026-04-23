@@ -36,7 +36,7 @@ public class Main {
 
         // 이전 선두 상태
         // 0 - a, 1 - b, 2 - 공동
-        int prev = 0;
+        int prev = 2; // 처음에는 공동 선두
 
         int ans = 0;
 
