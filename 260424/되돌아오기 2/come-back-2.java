@@ -16,7 +16,7 @@ public class Main {
             sec++;
 
             if (d[i] == 'L') {
-                dir = (dir + 1 + 4) % 4;
+                dir = (dir + 3) % 4;
             } else if (d[i] == 'R') {
                 dir = (dir + 1) % 4;
             } else { // 전진
