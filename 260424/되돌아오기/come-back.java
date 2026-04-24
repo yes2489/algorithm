@@ -31,6 +31,10 @@ public class Main {
             }
         }
 
+        if (!isReturn){
+            sec = -1;
+        }
+        
         System.out.println(sec);
     }
 
