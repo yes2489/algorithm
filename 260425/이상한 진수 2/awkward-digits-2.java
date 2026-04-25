@@ -5,17 +5,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String a = sc.next();
-        char[] arr = a.toCharArray();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == '0') {
-                arr[i] = '1';
-                break;
-            }
+        int max = 0;
+
+        for (int i = 0; i < a.length(); i++) {
+            char[] arr = a.toCharArray();
+            arr[i] = (arr[i] == '0') ? '1' : '0';
+            
+            int val = Integer.parseInt(new String(arr), 2);
+            max = Math.max(max, val);
         }
-
-        String ans = new String(arr);
-
-        System.out.println(Integer.parseInt(ans, 2));
+        
+        System.out.println(max);
     }
 }
