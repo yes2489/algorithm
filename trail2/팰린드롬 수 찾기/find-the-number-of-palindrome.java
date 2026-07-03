@@ -5,14 +5,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
         int y = sc.nextInt();
+        StringBuilder sb = new StringBuilder();
 
         int ans = 0;
         for (int i = x; i <= y; i++) {
-            StringBuilder sb = new StringBuilder();
             sb.append(i);
             sb.reverse();
             if (sb.toString().equals(String.valueOf(i)))
                 ans++;
+            
+            sb.setLength(0);
         }
 
         System.out.println(ans);
