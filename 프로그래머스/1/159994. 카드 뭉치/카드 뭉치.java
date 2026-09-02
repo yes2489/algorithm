@@ -5,20 +5,14 @@ class Solution {
         boolean success = true;
         
         for (String word : goal) {
-            if (idx1 < cards1.length) 
-                if (word.equals(cards1[idx1])) {
-                    idx1++;
-                    continue;
-                }
-            
-            if (idx2 < cards2.length) 
-                if (word.equals(cards2[idx2])){
+            if (idx1 < cards1.length && word.equals(cards1[idx1]))
+                idx1++;
+            else if (idx2 < cards2.length && word.equals(cards2[idx2]))
                     idx2++;
-                    continue;
-                }
-            
-            success = false;
-            break;
+            else {
+                success = false;
+                break;
+            }
         }
         
         return success ? "Yes" : "No";
