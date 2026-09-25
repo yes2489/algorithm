@@ -15,24 +15,26 @@ class Solution {
             }
         }
         
-        StringBuilder sb = new StringBuilder();
+        String[] ans = new String[record.length];
+        int idx = 0;
         
         for (String s : record) {
             String[] temp = s.split(" ");
             String status = temp[0];
+            String nickname = user.get(temp[1]);
             
-            if (status.equals("Change")) continue;
-            
-            sb.append(user.get(temp[1]));
-            
+            if (status.equals("Change")) 
+                continue;
+
             if (status.equals("Enter")) {
-                sb.append("님이 들어왔습니다./");
+                ans[idx++] = nickname + "님이 들어왔습니다.";
             } else if (status.equals("Leave")) {
-                sb.append("님이 나갔습니다./");
+                ans[idx++] = nickname + "님이 나갔습니다.";
             }
         }
         
-        String[] answer = sb.toString().split("/");
+        String[] answer = new String[idx];
+        System.arraycopy(ans, 0, answer, 0, idx);
         
         return answer;
     }
