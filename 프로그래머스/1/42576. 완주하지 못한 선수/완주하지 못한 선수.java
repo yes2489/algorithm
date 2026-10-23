@@ -1,26 +1,15 @@
-import java.util.Map;
-import java.util.HashMap;
+import java.util.Arrays;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        Map<String, Integer> map = new HashMap<>();
+        Arrays.sort(participant);
+        Arrays.sort(completion);
         
-        // 참가자 추가
-        for (String name: participant) {
-            map.put(name, map.getOrDefault(name, 0) + 1);
+        for (int i = 0; i < completion.length; i++) {
+            if (!participant[i].equals(completion[i]))
+                return participant[i];
         }
         
-        // 완주자 제거
-        for (String name: completion) {
-            map.put(name, map.get(name) - 1);
-        }
-        
-        // 값이 0이 아닌 사람 찾기
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > 0)
-                return entry.getKey();
-        }
-        
-        return "";
+        return participant[participant.length - 1];
     }
 }
