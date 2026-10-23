@@ -9,33 +9,22 @@ class Solution {
         int[] score = new int[3];
         
         for (int i = 0; i < answers.length; i++) {
-            if (answers[i] == a[i % a.length])
-                score[0]++;
-            if (answers[i] == b[i % b.length])
-                score[1]++;
-            if (answers[i] == c[i % c.length])
-                score[2]++;
+            if (answers[i] == a[i % a.length]) score[0]++;
+            if (answers[i] == b[i % b.length]) score[1]++;
+            if (answers[i] == c[i % c.length]) score[2]++;
         }
         
-        int max = Integer.MIN_VALUE;
-        
+        int max = 0;
         for (int i : score) {
             max = Math.max(max, i);
         }
         
         ArrayList<Integer> list = new ArrayList<>();
-        
         for (int i = 0; i < 3; i++) {
             if (score[i] == max)
                 list.add(i + 1);
         }
         
-        int[] answer = new int[list.size()];
-        
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i);    
-        }
-        
-        return answer;
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
