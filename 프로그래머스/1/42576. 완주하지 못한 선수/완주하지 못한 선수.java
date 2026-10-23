@@ -4,22 +4,23 @@ import java.util.HashMap;
 class Solution {
     public String solution(String[] participant, String[] completion) {
         Map<String, Integer> map = new HashMap<>();
-
-        // 완주한 선수 개수 저장
-        for (String s : completion)
-            map.put(s, map.getOrDefault(s, 0) + 1);
-
-        // 참가자 확인
-        for (String s : participant){
-            int cnt = map.getOrDefault(s, 0);
-
-            if (cnt == 0) {
-                return s;
-            }
-
-            map.put(s, cnt - 1);
+        
+        // 참가자 추가
+        for (String name: participant) {
+            map.put(name, map.getOrDefault(name, 0) + 1);
         }
-
+        
+        // 완주자 제거
+        for (String name: completion) {
+            map.put(name, map.get(name) - 1);
+        }
+        
+        // 값이 0이 아닌 사람 찾기
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 0)
+                return entry.getKey();
+        }
+        
         return "";
     }
 }
