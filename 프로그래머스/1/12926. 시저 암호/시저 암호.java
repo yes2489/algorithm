@@ -1,17 +1,20 @@
 class Solution {
     public String solution(String s, int n) {
-        StringBuilder answer = new StringBuilder(s.length());
-
+        StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
-            if (c == ' '){
-                answer.append(c);
-            }else if (Character.isLowerCase(c)) {
-                answer.append((char) ((c - 'a' + n) % 26 + 'a'));
-            } else {
-                answer.append((char) ((c - 'A' + n) % 26 + 'A'));
-            }
+            sb.append(push(c, n));
         }
-
-        return answer.toString();
+        
+        return sb.toString();
+    }
+    
+    private char push(char c, int n) {
+        if (!Character.isAlphabetic(c)) return c;
+        
+        // c를 n만큼 밀어 반환
+        int offset = Character.isUpperCase(c) ? 'A' : 'a';
+        int position = c - offset;
+        position = (position + n) % ('Z' - 'A' + 1);
+        return (char) (offset + position);
     }
 }
