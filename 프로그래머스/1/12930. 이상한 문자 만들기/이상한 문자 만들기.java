@@ -1,21 +1,20 @@
 class Solution {
     public String solution(String s) {
         StringBuilder sb = new StringBuilder();
-        char[] arr = s.toCharArray();
-        int idx = 0;
+        boolean isUpper = true;
         
-        for (char c : arr) {
-            if (c == ' ') {
+        for (char c : s.toCharArray()) {
+            if (!Character.isAlphabetic(c)) {
                 sb.append(c);
-                idx = 0;
+                isUpper = true;
                 continue;
             }
-            if (idx % 2 == 0)
+            if (isUpper)
                 sb.append(Character.toUpperCase(c));
             else
                 sb.append(Character.toLowerCase(c));
             
-            idx++;
+            isUpper = !isUpper;
         }
         return sb.toString();
     }
