@@ -1,40 +1,58 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
-    public int solution(String s) {
-        int len = s.length();
-        int answer = len;
+    
+    // 압축된 문자열의 가장 짧은 길이 반환
+    private int compress(String str, int len) {
+        StringBuilder sb = new StringBuilder();
+        String last = "";
+        int cnt =0;
         
-        // 1개 단위부터 s의 길이. /2 까지 자를 수 있음
-        for (int i = 1; i <= len / 2; i++) {
-            StringBuilder sb = new StringBuilder();
-            String base = s.substring(0, i);
-            int cnt = 1;
-            
-            // i 크기만큼씩 증가하며 비교
-            for (int j = i; j <= len; j += i) {
-                int endIdx = Math.min(j + i, len);
-                String compare = s.substring(j, endIdx);
-                
-                if (base.equals(compare)) {
-                    cnt++;
-                } else {
-                    // 이전까지 반복된 횟수가 2 이상이면 숫자 붙이기
-                    if (cnt > 1) {
-                        sb.append(cnt);
-                    }
-                    sb.append(base);
-                    base = compare; // 기준 문자열 갱신
-                    cnt = 1;
+        for (String token : split(str, len)) {
+            if (last.equals(token)) {
+                cnt++;
+            } else{
+                if (cnt > 0){
+                    if (cnt > 1) sb.append(cnt);
+                    sb.append(last);
                 }
+                
+                last = token;
+                cnt = 1;
             }
-            
-            if (cnt > 1) {
-                sb.append(cnt);
-            }
-            sb.append(base);
-            
-            answer = Math.min(answer, sb.length());
         }
         
-        return answer;
+        if (cnt > 0) {
+            if (cnt > 1) sb.append(cnt);
+            sb.append(last);
+        }
+        
+        return sb.length();
+    }
+    
+    // str을 len 만큼씩 잘라 tokens list에 추가
+    private List<String> split(String str, int len) {
+        List<String> tokens = new ArrayList<>();
+        
+        for (int startIdx = 0; startIdx < str.length(); startIdx += len) {
+            int endIdx = startIdx + len;
+            
+            if (endIdx > str.length()) endIdx = str.length();
+            
+            tokens.add(str.substring(startIdx, endIdx));
+        }
+        
+        return tokens;
+    }
+    
+    public int solution(String s) {
+        int min = Integer.MAX_VALUE;
+        // 1부터 문자열 s의 길이만큼 자를 문자열의 길이를 설정하며 반복
+        for (int length = 1; length <= s.length(); length++) {
+            min = Math.min(min, compress(s, length)); 
+        }        
+        
+        return min;
     }
 }
